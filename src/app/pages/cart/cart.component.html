@@ -1,0 +1,29 @@
+<div class="main_component div-flex">
+    <mat-card class="card" *ngIf="cart?.menus && cart?.menus?.length!=0">
+        <mat-card-header>
+            <mat-card-title>
+                A kosarad tartalma: <br><hr>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p *ngFor="let menu of cart?.menus"><b>{{menu.day}}</b>, {{ menu.leves}}, {{ menu.masodik }}, {{ menu.darab }} db <br></p>
+            <p>A megrendelt étel a profilban megadott címre történik! Megváltoztani a profil oldalon lehet! Jó étvágyat kívánunk!</p>
+            <button mat-raised-button style="background-color:rgba(255, 0, 0, 0.747); color: white;" (click)="emptyCart()">Kosár kiürítése</button>
+            <button mat-raised-button style="background-color:rgba(255, 0, 0, 0.747); color: white; margin-left: 30px;" (click)="orderSubmit()">Megrendelés</button>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="card" *ngIf="cart?.menus && cart?.menus?.length==0 && !megrendelve">
+        <mat-card-header>
+            <mat-card-title>
+                A kosarad jelenleg üres! <br><hr>
+            </mat-card-title>
+        </mat-card-header>
+    </mat-card>
+    <mat-card class="card" *ngIf="cart?.menus && cart?.menus?.length==0 && megrendelve">
+        <mat-card-header>
+            <mat-card-title>
+                Az ebéd megrendelve, a rendeléseid a profilod rendelések listázása után látod!<br><hr>
+            </mat-card-title>
+        </mat-card-header>
+    </mat-card>
+</div>

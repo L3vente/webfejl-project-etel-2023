@@ -1,0 +1,116 @@
+<span class="loading-indicator" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</span>
+<div class="main_component" *ngIf="!isOrders && user && !isUpdate">
+    <div class="div-flex">
+        <h1>A fiókod adatai:</h1>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <div class="subForm">
+                <mat-form-field>
+                    <mat-label for="firstname">Vezetéknév:</mat-label>
+                    <input matInput type="text" value="{{user.name.firstname}}" readonly="true">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="lastname">Keresztnév:</mat-label>
+                    <input matInput type="text" value="{{user.name.lastname}}" readonly="true">
+                </mat-form-field>
+            </div>
+            <mat-form-field>
+                <mat-label for="address">Lakcím:</mat-label>
+                <input matInput type="text" value="{{user.address}}" readonly="true">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="phone">Telefonszám:</mat-label>
+                <input matInput type="text" value="{{user.phone}}" placeholder="pl.: +36301234567/0630..."
+                    readonly="true">
+                <div style="color: red;" *ngIf="signUpForm.hasError('badPhone')">Hibás formátum!</div>
+            </mat-form-field>
+            <div>
+
+                <span class="buttons">
+                    <button mat-raised-button style=" background-color:rgba(255, 0, 0, 0.747); color: white;"
+                        (click)="editUser()">Módosítás</button>
+                </span>
+                <span class="buttons">
+                    <button mat-raised-button style=" background-color:rgba(255, 0, 0, 0.747); color: white;"
+                        (click)="isOrders=true">Rendelések listázása</button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="main_component" *ngIf="!isOrders && user && isUpdate">
+    <div class="div-flex">
+        <h1>A fiók adatok szerkesztése:</h1>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <div formGroupName="name" class="subForm">
+                <mat-form-field>
+                    <mat-label for="firstname">Vezetéknév:</mat-label>
+                    <input matInput type="text" formControlName="firstname">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="lastname">Keresztnév:</mat-label>
+                    <input matInput type="text" formControlName="lastname">
+                </mat-form-field>
+            </div>
+            <mat-form-field>
+                <mat-label for="address">Lakcím:</mat-label>
+                <input matInput type="text" formControlName="address">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="phone">Telefonszám:</mat-label>
+                <input matInput type="text" value="{{user.phone}}" placeholder="pl.: +36301234567/0630..."
+                    formControlName="phone">
+                <div style="color: red;" *ngIf="signUpForm.hasError('badPhone')">Hibás formátum!</div>
+            </mat-form-field>
+            <div>
+
+                <span class="buttons">
+                    <button [disabled]="signUpForm.invalid" mat-raised-button
+                        style=" background-color:rgba(255, 0, 0, 0.747); color: white;"
+                        type="submit">Véglegesítés</button>
+                </span>
+                <span class="buttons">
+                    <button mat-raised-button style=" background-color:rgba(255, 0, 0, 0.747); color: white;"
+                        (click)="isUpdate=false">Vissza</button>
+                </span>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div class="main_component1 div-flex1" *ngIf="orders && orders.length!=0 && isOrders">
+    <mat-card class="card" *ngFor="let order of orders">
+        <mat-card-header>
+            <mat-card-title>
+                {{orderNumber+1}} {{setOrderNumber()}} <br>
+                <hr>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p *ngFor="let menu of order.orderDetails"><b>{{menu.day}}</b>, {{ menu.leves}}, {{ menu.masodik }}, {{
+                menu.darab }} db <br></p>
+            <br>
+            <p>Dátum: {{order.date}} </p>
+            <p>Szállítási cím: {{order.address}}</p>
+        </mat-card-content>
+    </mat-card>
+    <span class="buttons">
+        <button mat-raised-button style=" background-color:rgba(255, 0, 0, 0.747); color: white;"
+            (click)="isOrders=false;orderNumber=0">Vissza</button>
+    </span>
+</div>
+<div class="main_component1 div-flex1" *ngIf="orders?.length == 0 && isOrders">
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title>
+                <p>Még nincs rendelésed!</p><hr>
+            </mat-card-title>
+        </mat-card-header>
+    </mat-card>
+    <span class="buttons">
+        <button mat-raised-button style=" background-color:rgba(255, 0, 0, 0.747); color: white;"
+            (click)="isOrders=false;orderNumber=0">Vissza</button>
+    </span>
+</div>

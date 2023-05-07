@@ -1,0 +1,27 @@
+a{
+    text-decoration: none;
+    color: white;
+    font-variant: small-caps;
+
+ }
+ a:active, a:hover{
+    color: lightgray;
+ }
+ .navigation-items{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+ }
+ mat-sidenav{
+    width: 250px;
+ }
+ mat-icon{
+    color: white;
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+ }
+ 
+ 
+ 

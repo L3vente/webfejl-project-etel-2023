@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "online-etel-rendeles": {
+      "hosting": {
+        "webfejl-project-etel-2023": [
+          "online-etel-rendeles"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "online-etel-rendeles"
+  }
+}

@@ -1,0 +1,33 @@
+.div-flex {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100%;
+}
+.main_component{
+    margin-top: 50px;
+    height: 100%;
+}
+.div-flex div{
+    padding: 5px;
+}
+form{
+    display: inline-grid;
+    width: 50%;
+    align-self: center;
+}
+
+.subForm{
+    width: 100%;
+    display: inline-grid;
+
+}
+.buttons{
+    padding: 5px;
+    
+
+}
+button{
+    width: auto;
+}

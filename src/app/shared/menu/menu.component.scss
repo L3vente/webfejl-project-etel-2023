@@ -1,0 +1,14 @@
+a{
+    text-decoration: none;
+    color: white;
+ }
+ a:active, a:hover{
+    color: lightgray;
+ }
+ mat-icon{
+   color: black;
+   display: inline-block;
+   font-size: 20px;
+   margin-right: 5px;
+   vertical-align: middle;
+}

@@ -1,0 +1,101 @@
+<div class="main_component div-flex info-container" *ngIf="images && images.length==5 && menus && menus.length==5">
+  <img class="secound" src="assets/main-page-background.jpg">
+
+  <div>
+    <mat-card class="card info-card">
+      <mat-card-header>
+        <mat-card-title class="info-title">
+          Hétfő <br>
+          <hr>
+        </mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <img [src]="loadimage('hetfo')">
+        <p class="info-text">Leves: {{menus.at(1)?.leves}} </p>
+        <p class="info-text">Második: {{menus.at(1)?.masodik}} </p>
+        <input *ngIf="user" type="number" name="db" id="db" min="1" max="5" [(ngModel)]="menus[1].darab">
+        <button mat-raised-button *ngIf="user" style="background-color:rgba(255, 0, 0, 0.747); color: white;"
+          (click)="toCart(menus.at(1))">Kosárba</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card class="card info-card">
+      <mat-card-header>
+        <mat-card-title class="info-title">
+          Kedd <br>
+          <hr>
+        </mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <img [src]="loadimage('kedd')">
+        <p class="info-text">Leves: {{menus.at(2)?.leves}} </p>
+        <p class="info-text">Második: {{menus.at(2)?.masodik}} </p>
+        <input *ngIf="user" type="number" name="db" id="db" min="1" max="100" [(ngModel)]="menus[2].darab">
+        <button mat-raised-button *ngIf="user" style="background-color:rgba(255, 0, 0, 0.747); color: white;"
+          (click)="toCart(menus.at(2))">Kosárba</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card info-card">
+      <mat-card-header>
+        <mat-card-title class="info-title">
+          Szerda <br>
+          <hr>
+        </mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <img [src]="loadimage('szerda')">
+        <p class="info-text">Leves: {{menus.at(4)?.leves}} </p>
+        <p class="info-text">Második: {{menus.at(4)?.masodik}} </p>
+        <input *ngIf="user" type="number" name="db" id="db" min="1" max="100" [(ngModel)]="menus[4].darab">
+        <button mat-raised-button *ngIf="user" style="background-color:rgba(255, 0, 0, 0.747); color: white;"
+          (click)="toCart(menus.at(4))">Kosárba</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card info-card">
+      <mat-card-header>
+        <mat-card-title class="info-title">
+          Csütörtök <br>
+          <hr>
+        </mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <img [src]="loadimage('csutortok')">
+        <p class="info-text">Leves: {{menus.at(0)?.leves}} </p>
+        <p class="info-text">Második: {{menus.at(0)?.masodik}} </p>
+        <input *ngIf="user" type="number" name="db" id="db" min="1" max="100" [(ngModel)]="menus[0].darab">
+        <button mat-raised-button *ngIf="user" style="background-color:rgba(255, 0, 0, 0.747); color: white;"
+          (click)="toCart(menus.at(0))">Kosárba</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card class="card info-card">
+      <mat-card-header>
+        <mat-card-title class="info-title">
+          Péntek <br>
+          <hr>
+        </mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content>
+        <img [src]="loadimage('pentek')">
+        <p class="info-text">Leves: {{menus.at(3)?.leves}} </p>
+        <p class="info-text">Második: {{menus.at(3)?.masodik}} </p>
+        <input *ngIf="user" type="number" name="db" id="db" min="1" max="100" value="1" [(ngModel)]="menus[3].darab">
+        <button mat-raised-button *ngIf="user" style="background-color:rgba(255, 0, 0, 0.747); color: white;"
+          (click)="toCart(menus.at(3))">Kosárba</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>
