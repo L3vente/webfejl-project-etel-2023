@@ -70,7 +70,7 @@ editUser() {
     this.orderNumber = 0;
   }
   setOrderNumber(){
-    this.orderNumber+=1;
+    this.orderNumber++;
   }
   ngOnInit(): void {
     const user = JSON.parse(localStorage.getItem('user') as string);

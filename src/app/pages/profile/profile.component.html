@@ -81,10 +81,10 @@
 </div>
 
 <div class="main_component1 div-flex1" *ngIf="orders && orders.length!=0 && isOrders">
-    <mat-card class="card" *ngFor="let order of orders">
+    <mat-card class="card" *ngFor="let order of orders; let i = index">
         <mat-card-header>
             <mat-card-title>
-                {{orderNumber+1}} {{setOrderNumber()}} <br>
+                {{i+1}} <br>
                 <hr>
             </mat-card-title>
         </mat-card-header>
