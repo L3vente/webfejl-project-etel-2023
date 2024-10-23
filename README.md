@@ -22,3 +22,4 @@ Ezt a projektet 2023-ban készítettem, a feladat egy webalkalmazás készítés
 - **Firestore adatbázis**: Firestore adatbázis használata az adatok tárolására (integráció és környezeti változók helyes használata).
 - **Route-ok**: Legalább 4 különböző route a különböző oldalak eléréséhez.
 - **Route védelme azonosítással**: Legalább 2 route levédése AuthGuard segítségével (pl. a regisztrált felhasználó adatai nem láthatók bárki számára).
+![FoodWebsite screenshot](./images/Food_website.png)
